@@ -27,7 +27,7 @@ st.write(f'O seu novo preço médio será aproximadamente **R$ {preco_medio_novo
 # st.pyplot(plt)
 
 # Exibição das redes sociais com ícones
-st.sidebar.title('Redes Sociais')
+st.sidebar.title('Redes Sociais e Contato')
 st.sidebar.markdown('''
 <a href="https://www.linkedin.com/in/seu-perfil" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:50px;height:50px;margin-right:10px;">
@@ -38,7 +38,11 @@ st.sidebar.markdown('''
 <a href="https://twitter.com/seu-usuario" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" style="width:50px;height:50px;">
 </a>
+<a href="https://www.instagram.com/tiagofholanda?igsh=MXRlcTVmYWx1YjZleA%3D%3D&utm_source=qr" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:50px;height:50px;margin-right:10px;">
+</a>
+<a href="mailto:tfholanda@gmail.com" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="width:50px;height:50px;">
+</a>
 ''', unsafe_allow_html=True)
 
-# Incluir a imagem de perfil do Tiago Holanda
-st.sidebar.image("https://i1.rgstatic.net/ii/profile.image/11431281112306515-1673387103365_Q128/Tiago-Holanda.jpg", width=128, caption='Tiago Holanda')
