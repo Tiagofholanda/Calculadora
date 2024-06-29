@@ -3,6 +3,19 @@ import streamlit as st
 # Título do aplicativo
 st.title('Calculadora de Preço Médio de Ações')
 
+# Função para alternar entre temas
+def toggle_theme():
+    if st.button('Alternar Tema'):
+        current_theme = st.config.get_option('theme')
+        new_theme = 'dark' if current_theme == 'light' else 'light'
+        st.experimental_set_query_params(theme=new_theme)
+
+# Botão para alternar tema
+toggle_theme()
+
+# Incluir logo do GitHub no canto superior esquerdo
+st.image("https://github.com/Tiagofholanda/Calculadora/raw/main/imagem/logo.jpeg", width=150)
+
 # Entrada de dados pelo usuário
 acoes_iniciais = st.number_input('Número de ações iniciais', min_value=1, value=190)
 preco_medio_inicial = st.number_input('Preço médio inicial (R$)', min_value=0.0, value=84.00, format="%.2f")
@@ -18,21 +31,22 @@ valor_total = valor_total_inicial + valor_total_novas
 
 preco_medio_novo = valor_total / total_acoes
 
-# Exibição do resultado
-st.write(f'Você possui inicialmente {acoes_iniciais} ações com preço médio de R$ {preco_medio_inicial:.2f}')
-st.write(f'O preço atual da ação é R$ {preco_atual:.2f}')
-st.write(f'Se você comprar {novas_acoes} ações a R$ {preco_atual:.2f} cada, seu novo preço médio será aproximadamente R$ {preco_medio_novo:.2f}')
+# Exibição do novo preço médio
+st.write(f'O seu novo preço médio será aproximadamente **R$ {preco_medio_novo:.2f}**.')
 
-# Exibição das redes sociais com ícones
+# Exibição das redes sociais com logo do GitHub e imagem de perfil
 st.write('### Minhas Redes Sociais')
 st.markdown('''
-<a href="https://www.linkedin.com/in/tiago-holanda-082928141/" target="_blank">
-    <img src="linkedin.png" alt="LinkedIn" style="width:50px;height:50px;">
+<a href="https://www.linkedin.com/in/seu-perfil" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:50px;height:50px;margin-right:10px;">
 </a>
-<a href="https://github.com/Tiagofholanda" target="_blank">
-    <img src="github.png" alt="GitHub" style="width:50px;height:50px;">
+<a href="https://github.com/account" target="_blank">
+    <img src="Octocat.png" alt="GitHub" style="width:50px;height:50px;margin-right:10px;">
 </a>
 <a href="https://twitter.com/seu-usuario" target="_blank">
-    <img src="twitter.png" alt="Twitter" style="width:50px;height:50px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style="width:50px;height:50px;">
 </a>
 ''', unsafe_allow_html=True)
+
+# Incluir a imagem de perfil do Tiago Holanda
+st.image("https://i1.rgstatic.net/ii/profile.image/11431281112306515-1673387103365_Q128/Tiago-Holanda.jpg", width=128, caption='Tiago Holanda')
