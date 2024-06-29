@@ -6,7 +6,7 @@ st.title('Calculadora de Preço Médio de Ações')
 # Entrada de dados pelo usuário
 st.sidebar.title('Configurações')
 acoes_iniciais = st.sidebar.number_input('Número de ações iniciais', min_value=1, value=190)
-preco_medio_inicial = st.sidebar.number_input('Preço médio inicial (R$)', min_value=0.0, value=84.00, format="%.2f")
+preco_medio_inicial = st.sidebar.number_input('Preço médio inicial ou atual (R$)', min_value=0.0, value=84.00, format="%.2f")
 preco_atual = st.sidebar.number_input('Preço atual da ação (R$)', min_value=0.0, value=70.00, format="%.2f")
 novas_acoes = st.sidebar.number_input('Número de novas ações a comprar', min_value=1, value=50)
 
