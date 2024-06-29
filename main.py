@@ -32,7 +32,7 @@ st.sidebar.markdown('''
 <a href="https://www.linkedin.com/in/seu-perfil" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" style="width:50px;height:50px;margin-right:10px;">
 </a>
-<a href="https://github.com/account" target="_blank">
+<a href="https://github.com/Tiagofholanda" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/2111/2111465.png" alt="GitHub" style="width:50px;height:50px;margin-right:10px;">
 </a>
 <a href="https://twitter.com/seu-usuario" target="_blank">
@@ -45,4 +45,3 @@ st.sidebar.markdown('''
     <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="width:50px;height:50px;">
 </a>
 ''', unsafe_allow_html=True)
-
