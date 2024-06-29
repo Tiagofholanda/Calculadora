@@ -23,8 +23,16 @@ st.write(f'Você possui inicialmente {acoes_iniciais} ações com preço médio 
 st.write(f'O preço atual da ação é R$ {preco_atual:.2f}')
 st.write(f'Se você comprar {novas_acoes} ações a R$ {preco_atual:.2f} cada, seu novo preço médio será aproximadamente R$ {preco_medio_novo:.2f}')
 
-# Exibição das redes sociais
+# Exibição das redes sociais com ícones
 st.write('### Minhas Redes Sociais')
-st.write('[LinkedIn](https://www.linkedin.com/in/seu-perfil)')
-st.write('[GitHub](https://github.com/seu-usuario)')
-st.write('[Twitter](https://twitter.com/seu-usuario)')
+st.markdown('''
+<a href="https://www.linkedin.com/in/tiago-holanda-082928141/" target="_blank">
+    <img src="linkedin.png" alt="LinkedIn" style="width:50px;height:50px;">
+</a>
+<a href="https://github.com/Tiagofholanda" target="_blank">
+    <img src="github.png" alt="GitHub" style="width:50px;height:50px;">
+</a>
+<a href="https://twitter.com/seu-usuario" target="_blank">
+    <img src="twitter.png" alt="Twitter" style="width:50px;height:50px;">
+</a>
+''', unsafe_allow_html=True)
