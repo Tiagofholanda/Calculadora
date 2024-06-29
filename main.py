@@ -79,7 +79,15 @@ exemplo_acoes = [
     'SPAF11.SAO', 'TBOF11.SAO', 'TORD11.SAO', 'TRXF11.SAO', 'UBSR11.SAO',
     'VCJR11.SAO', 'VILG11B.SAO', 'VINO11.SAO', 'VISC11.SAO', 'VRTA11.SAO',
     'WPLZ11.SAO', 'XPCI11.SAO', 'XPHT11.SAO', 'XPLG11.SAO', 'XPPR11.SAO',
-    'XPSF11.SAO', 'XTED11.SAO', 'YCHY11.SAO'
+    'XPSF11.SAO', 'XTED11.SAO', 'YCHY11.SAO', 'AGRO11.SAO', 'SLCE3.SAO', 
+    'SMTO3.SAO', 'SMLS3.SAO', 'AGXY3.SAO',
+    'BRML3.SAO', 'CNES11.SAO', 'FEXC11.SAO', 'HGCR11.SAO', 'FDMC11.SAO',
+    'HTMX11.SAO', 'CTXT11.SAO', 'HTAG11.SAO', 'RBED11.SAO', 'HFOF11.SAO',
+    'HABT11.SAO', 'MALL11.SAO', 'RBRP11.SAO', 'RBVA11.SAO', 'TRNT11.SAO',
+    'XPLG11.SAO', 'CPTS11.SAO', 'HGLG11.SAO', 'HGRU11.SAO', 'HSML11.SAO',
+    'JRDM11.SAO', 'KNRI11.SAO', 'LVBI11.SAO', 'MXRF11.SAO', 'OUCY11.SAO',
+    'PQDP11.SAO', 'RECT11.SAO', 'SAAG11.SAO', 'SDIL11.SAO', 'SPTW11.SAO',
+    'SUNO11.SAO', 'VINO11.SAO', 'VRTA11.SAO'
     
     # BDRs
     'AAPL34.SAO', 'ABEV34.SAO', 'ADRs.ISA', 'AMD34.SAO', 'AMZO34.SAO',
@@ -141,8 +149,8 @@ st.title('Calculadora de Preço Médio de Ações')
 
 # Entrada de dados pelo usuário
 st.sidebar.title('Configurações')
-acoes_iniciais = st.sidebar.number_input('Número de ações iniciais', min_value=1, value=100)
-preco_medio_inicial = st.sidebar.number_input('Preço médio inicial (R$)', min_value=0.0, value=20.00, format="%.2f")
+acoes_iniciais = st.sidebar.number_input('Número de ações iniciais', min_value=1, value=190)
+preco_medio_inicial = st.sidebar.number_input('Preço médio inicial (R$)', min_value=0.0, value=84.00, format="%.2f")
 
 # Entrada para digitar o preço atual da ação manualmente ou buscar automaticamente
 st.sidebar.markdown('**Preço atual da ação:**')
