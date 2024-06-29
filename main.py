@@ -1,4 +1,23 @@
 import streamlit as st
+import requests
+
+# Função para buscar o preço atual da ação
+def get_current_price(symbol):
+    try:
+        # Chave da API do Alpha Vantage (substitua pela sua própria chave)
+        api_key = '64nyYAcNp6D4cfc2HptTAjSY8dlZ4Vsu'
+        url = f'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol={symbol}&apikey={api_key}'
+        response = requests.get(url)
+        data = response.json()
+        if 'Global Quote' in data:
+            current_price = float(data['Global Quote']['05. price'])
+            return current_price
+        else:
+            st.error(f"Não foi possível obter o preço para o símbolo {symbol}. Verifique o código e tente novamente.")
+            return None
+    except Exception as e:
+        st.error(f"Erro ao obter preço: {e}")
+        return None
 
 # Título do aplicativo
 st.title('Calculadora de Preço Médio de Ações')
@@ -7,24 +26,27 @@ st.title('Calculadora de Preço Médio de Ações')
 st.sidebar.title('Configurações')
 acoes_iniciais = st.sidebar.number_input('Número de ações iniciais', min_value=1, value=190)
 preco_medio_inicial = st.sidebar.number_input('Preço médio inicial (R$)', min_value=0.0, value=84.00, format="%.2f")
-preco_atual = st.sidebar.number_input('Preço atual da ação (R$)', min_value=0.0, value=70.00, format="%.2f")
+codigo_ativo = st.sidebar.text_input('Código da ação (ex: PETR4.SA)', 'PETR4.SA')
 novas_acoes = st.sidebar.number_input('Número de novas ações a comprar', min_value=1, value=50)
 
+# Botão para buscar o preço atual
+if st.sidebar.button('Buscar preço atual'):
+    preco_atual = get_current_price(codigo_ativo)
+    if preco_atual is not None:
+        st.sidebar.write(f'O preço atual de {codigo_ativo} é R$ {preco_atual:.2f}')
+    else:
+        st.sidebar.warning('Digite um código válido para buscar o preço.')
+
 # Cálculo do novo preço médio
-valor_total_inicial = acoes_iniciais * preco_medio_inicial
-valor_total_novas = novas_acoes * preco_atual
-total_acoes = acoes_iniciais + novas_acoes
-valor_total = valor_total_inicial + valor_total_novas
-preco_medio_novo = valor_total / total_acoes
+if 'preco_atual' in locals():
+    valor_total_inicial = acoes_iniciais * preco_medio_inicial
+    valor_total_novas = novas_acoes * preco_atual
+    total_acoes = acoes_iniciais + novas_acoes
+    valor_total = valor_total_inicial + valor_total_novas
+    preco_medio_novo = valor_total / total_acoes
 
-# Exibição do novo preço médio
-st.write(f'O seu novo preço médio será aproximadamente **R$ {preco_medio_novo:.2f}**.')
-
-# Adicionar gráfico se aplicável
-# Exemplo de gráfico: evolução do preço médio ao longo do tempo
-# import matplotlib.pyplot as plt
-# plt.plot([0, 1, 2, 3, 4], [preco_medio_inicial, preco_medio_novo, preco_medio_novo, preco_medio_novo, preco_medio_novo])
-# st.pyplot(plt)
+    # Exibição do novo preço médio
+    st.write(f'O seu novo preço médio será aproximadamente **R$ {preco_medio_novo:.2f}**.')
 
 # Exibição das redes sociais com ícones
 st.sidebar.title('Redes Sociais e Contato')
@@ -45,3 +67,4 @@ st.sidebar.markdown('''
     <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" style="width:50px;height:50px;">
 </a>
 ''', unsafe_allow_html=True)
+
