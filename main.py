@@ -141,8 +141,8 @@ st.title('Calculadora de Preço Médio de Ações')
 
 # Entrada de dados pelo usuário
 st.sidebar.title('Configurações')
-acoes_iniciais = st.sidebar.number_input('Número de ações iniciais', min_value=1, value=190)
-preco_medio_inicial = st.sidebar.number_input('Preço médio inicial (R$)', min_value=0.0, value=84.00, format="%.2f")
+acoes_iniciais = st.sidebar.number_input('Número de ações iniciais', min_value=1, value=100)
+preco_medio_inicial = st.sidebar.number_input('Preço médio inicial (R$)', min_value=0.0, value=20.00, format="%.2f")
 
 # Entrada para digitar o preço atual da ação manualmente ou buscar automaticamente
 st.sidebar.markdown('**Preço atual da ação:**')
